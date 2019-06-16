@@ -1,0 +1,1051 @@
+@import "variables/var";
+@import "mixins/mixins";
+@import "grid/grid";
+@import "utilitis/utilitis";
+@import "navigation/nav";
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+html {
+
+  //ovo definise rem
+  font-size: 62.5%; //1 rem = 16px 10px/16px=62.5% 
+  box-sizing: inherit;
+  //62.5=10rem
+
+
+  /*@include respond(phone){
+  font-size: 50%; //1rem =8px, 8/16=50%
+   posto je isto kod kod taab-port 50% nije potreban
+}*/
+
+  @include respond(tab-land) {
+    //width < 1200
+    font-size: 56.25%; //1rem =9px, 9/16=50.25% 
+  }
+
+  @include respond(tab-port) {
+    // width < 900
+    font-size: 50%; //1rem =8px, 8/16=50%   
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem=12px 12/16=75%
+  }
+
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $DarkGrey;
+
+
+}
+
+
+
+.header {
+  height: 85vh;
+  background-image: linear-gradient(to left bottom, rgba($LightSkyBlue, 0.815), rgba($MidnightBlue, 0.725)), url(../img/1.jpg);
+  background-size: cover;
+  background-position: top;
+  -webkit-clip-path: polygon(0 0, 100% 1%, 100% 83%, 0 100%);
+  clip-path: polygon(0 0, 100% 1%, 100% 83%, 0 100%);
+  position: relative;
+
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+  }
+
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+  only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+  only screen and (min-width: 125em) {
+    background-image: linear-gradient(to right bottom,
+      rgba($LightSkyBlue, 0.8),
+      rgba($MidnightBlue, 0.8)),
+      url(../img/hero.jpg);
+  }
+
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
+
+.heading-main {
+
+  color: $color-white;
+  text-transform: uppercase;
+  backface-visibility: hidden; //fix za animacije
+  margin-bottom: 6rem;
+
+
+
+  .heading-primary--first {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-family: 5rem;
+
+    }
+  }
+
+  .heading-primary--second {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; //skraceni zapis
+
+    @include respond(phone) {
+      letter-spacing: .5rem;
+    }
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.btn {
+
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2;
+    position: relative;
+    font-size: $default-font-size;
+
+    //change for  <button> element form
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgb($color-black, .2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active,
+  &:focus {
+    // focus button form
+    //click
+
+    outline: none; //button form
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgb($color-black, .2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $DarkGrey;
+
+    &::after {
+      background-color: $color-white;
+    }
+
+  }
+
+  &--blue {
+    background-color: $MidnightBlue;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-white;
+    }
+
+  }
+
+
+
+  &--animation {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
+}
+
+.section-about {
+
+  background-color: $color-grey-light;
+  padding: 25rem 0rem;
+  margin-top: -20vh;
+
+  @include respond(tab-port) {
+    padding: 20rem 0;
+  }
+}
+
+.heading-secundary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to left, $LightSkyBlue, $MidnightBlue);
+  -webkit-background-clip: text; //boja po tekstu
+  color: transparent; //boja po tekstu 
+  letter-spacing: .2rem;
+  transition: all .2s;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgb($color-black, .3)
+  }
+}
+
+
+
+
+.heading-text {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+
+    margin-bottom: 3rem;
+  }
+
+}
+
+.btn-text {
+
+
+  &:link,
+  &:visited {
+
+    font-size: $default-font-size;
+    color: $MidnightBlue;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $MidnightBlue;
+    padding: 3px;
+    transition: all .2s;
+
+
+
+  }
+
+  &:hover {
+
+    background: $MidnightBlue;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgb($color-black, .15);
+    transform: translateY(-2px)
+  }
+
+
+
+  &:active {
+
+    box-shadow: 0 .5rem 1rem rgb($color-black, .15);
+    transform: translateY(0)
+  }
+}
+
+.composition {
+  position: relative;
+
+
+  &__photo {
+
+    width: 55%;
+    height: 200px;
+    box-shadow: 0 1.5rem 4rem rgb($color-black, .4);
+    border-radius: 5px;
+    position: absolute;
+    z-index: 10; //slika preko slike
+
+
+
+    @include respond(tab-port) {
+      float: left;
+      position: relative;
+      width: 33.33333333%;
+      box-shadow: 0 1.5rem 3rem rgba($color-black, .2);
+    }
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+
+      @include respond(tab-port) {
+        top: 0;
+        transform: scale(1.2);
+      }
+    }
+
+    &--p2 {
+      right: 0;
+      top: 2rem;
+
+      @include respond(tab-port) {
+        top: -1rem;
+        transform: scale(1.3);
+        z-index: 100;
+      }
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+
+      @include respond(tab-port) {
+        top: 1rem;
+        left: 0;
+        transform: scale(1.1);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05) translateY(-.5rem);
+      box-shadow: 0 2.5rem 4rem rgb($color-black, .6);
+      z-index: 20; //slika preko slike
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+    transform: scale(.95);
+  }
+}
+
+.feature-box {
+
+  background-color: rgb($color-white, .8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 2rem 4rem rgb($color-black, .15);
+  transition: transform .3s; //hover povezano sa transform
+
+  @include respond(tab-port) {
+    padding: 2rem;
+  }
+
+  &__icon {
+
+    font-size: 6rem;
+    margin-bottom: .5rem;
+    display: inline-block;
+    background-image: linear-gradient(to left,
+      $LightSkyBlue, $MidnightBlue); //color icon (icon font is text)
+
+    -webkit-background-clip: text; //color icon
+    color: transparent; //color icon
+
+    @include respond(tab-port) {
+      margin-bottom: 0;
+    }
+
+  }
+
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03)
+  }
+
+
+}
+
+.section-features {
+
+  padding: 20rem 0;
+  background-image: linear-gradient(to left bottom,
+    rgba($LightSkyBlue, 0.815),
+    rgba($MidnightBlue, 0.725)), url(../img/2.jpg);
+  background-size: cover;
+
+  transform: skewY(-7deg);
+  margin-top: -10rem;
+
+  &>* {
+    transform: skewY(7deg);
+
+  }
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
+
+}
+
+.section-tours {
+
+  background-color: $color-grey-light;
+  padding: 25rem 0 15rem 0;
+  margin-top: -10rem;
+
+  @include respond(tab-port) {
+    padding: 20rem 0 10rem 0;
+  }
+
+}
+
+.card {
+  //funkcionalnost
+
+  perspective: 150rem;
+  -moz-perspective: 150rem; //da bi radilo u mozili
+  position: relative;
+  height: 52rem;
+
+
+  &__side {
+
+    height: 52rem;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &--front {
+
+      background: $color-white;
+    }
+
+    &--back {
+
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+
+      }
+
+      &-2 {
+        background-image: linear-gradient(to right bottom, $color-card-light, $color-card-dark);
+
+      }
+
+      &-3 {
+        background-image: linear-gradient(to right bottom, $LightSkyBlue, $MidnightBlue);
+
+      }
+
+
+
+    }
+
+  }
+
+  &:hover &__side--front {
+
+    transform: rotateY(-180deg);
+
+  }
+
+  &:hover &__side--back {
+
+    transform: rotateY(0);
+  }
+
+  //front side style
+  &__picture {
+
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen; //animacije za sliku
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom,
+        rgba($color-secondary-light, .85),
+        rgba($color-secondary-dark, .85)),
+        url(../img/card1.jpg);
+
+    }
+
+    &--2 {
+      background-image: linear-gradient(to right bottom,
+        rgba($color-card-light, .85),
+        rgba($color-card-dark, .85)),
+        url(../img/card2.jpg);
+
+    }
+
+    &--3 {
+      background-image: linear-gradient(to right bottom,
+        rgba($LightSkyBlue, .85),
+        rgba(MidnightBlue, .85)),
+        url(../img/card3.jpg);
+
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute; //da se tekst vidi ispred slike
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+
+
+
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone; //da bi radilo na chrome
+    box-decoration-break: clone;
+
+    &--1 {
+
+      background-image: linear-gradient(to right bottom,
+        rgba($color-secondary-light, .85),
+        rgba($color-secondary-dark, .85));
+
+    }
+
+    &--2 {
+      background-image: linear-gradient(to right bottom,
+        rgba($color-card-light, .85),
+        rgba($color-card-dark, .85))
+    }
+
+    &--3 {
+      background-image: linear-gradient(to right bottom,
+        rgba($LightSkyBlue, .85),
+        rgba(MidnightBlue, .85))
+    }
+
+  }
+
+  &__details {
+    padding: 3rem;
+
+    ul {
+
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+
+          border-bottom: 1px solid $DarkGrey;
+        }
+
+      }
+    }
+
+  }
+
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+
+  }
+
+  &__price-box {
+    text-align: center;
+    margin-bottom: 8rem;
+    color: $color-white;
+
+  }
+
+  &__price-only {
+
+    font-size: 1.4rem;
+    text-transform: uppercase;
+
+  }
+
+  &__price-value {
+
+    font-size: 6rem;
+    font-weight: 100;
+
+  }
+
+
+  @media only screen and (max-width: 56.25em),
+  only screen and (hover: none) {
+
+    height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+
+      &--back {
+        transform: rotateY(0);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    // FRONT SIDE STYLING
+    &__cta {
+      position: relative;
+      top: 0%;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+      font-size: 4rem;
+    }
+  }
+
+}
+
+
+
+.section-stories {
+  position: relative;
+  padding: 15rem 0;
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
+
+}
+
+.story {
+  width: 75%;
+  margin: 0 auto;
+ 
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  background-color: rgba($color-white, .6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
+  }
+
+
+
+  &__shape {
+    width: 13rem;
+    height: 13rem;
+   
+    float: left;
+    position: relative;
+    overflow: hidden;
+    transform: translateX(-3rem) skewX(12deg);
+    border-radius: 50%;
+
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      border-radius: none;
+    }
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
+  }
+
+  &__img {
+
+    height: 100%;
+
+    transform: translateX(-4rem) scale(1.4);
+
+
+    backface-visibility: hidden;
+    transition: all .5s;
+
+  }
+
+  &__text {
+
+    transform: skewX(12deg);
+
+    @include respond(phone) {
+      transform: skewX(0);
+    }
+
+  }
+
+  &__caption {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden;
+
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+
+  }
+
+  &:hover &__img {
+
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+
+  }
+}
+
+.bg-video {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .15;
+  overflow: hidden;
+
+  &__content {
+
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, $LightSkyBlue, $MidnightBlue);
+
+}
+
+.book {
+  margin: 0 auto;
+  width: 70%;
+  background-image: linear-gradient(105deg,
+    rgba($color-white, .9) 0%,
+    rgba($color-white, .9) 50%,
+    transparent 50%),
+    url(../img/2.jpg);
+  background-size: 100%;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, .5);
+  border-radius: 5px;
+
+
+  @include respond(tab-land) {
+    background-image: linear-gradient(105deg,
+      rgba($color-white, .9) 0%,
+      rgba($color-white, .9) 65%,
+      transparent 65%),
+      url(../img/2.jpg);
+    background-size: cover;
+  }
+
+  @include respond(tab-port) {
+    background-image: linear-gradient(to right,
+      rgba($color-white, .9) 0%,
+      rgba($color-white, .9) 100%),
+      url(o../img/2.jpg);
+  }
+
+
+  &__form {
+
+    width: 50%;
+    padding: 6rem;
+
+    @include respond(tab-land) {
+      width: 65%;
+    }
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+  }
+
+
+}
+
+.form {
+
+  &__group:not(:last-child) {
+
+    margin-bottom: 2rem;
+
+
+
+  }
+
+
+
+  &__input {
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, .5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    transition: all .3s;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, .1);
+      border-bottom: 3px solid $LightSkyBlue;
+
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+
+    }
+
+    &::-webkit-input-placeholder {
+      color: $DarkGrey;
+
+    }
+
+  }
+
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: block;
+    transition: all .3s;
+
+
+  }
+
+  &__input:placeholder-shown+&__label {
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+
+  }
+
+
+}
+
+.footer {
+  background-color: $DarkGrey;
+  padding: 10rem 0;
+  font-size: 1.4rem;
+  text-align: center;
+
+  @include respond(tab-port) {
+    padding: 8rem 0;
+  }
+
+  &__navigation {
+
+    border-bottom: 2px solid #eee;
+    padding: 2rem;
+    display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      text-align: center;
+    }
+
+  }
+
+  &__list {
+
+    list-style: none;
+  }
+
+  &__items {
+    display: inline-block;
+
+    &:not(:last-child) {
+
+      margin-right: 1.5rem;
+
+    }
+
+  }
+
+  &__link {
+
+    &:link,
+    &:visited {
+
+      color: $color-grey-light;
+      background-color: $DarkGrey;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: all .2s;
+
+
+    }
+
+    &:hover,
+    &active {
+
+      color: $MidnightBlue;
+      box-shadow: 0 1rem 2rem rgba($color-black, .4);
+      transform: rotate(5deg) scale(1.3);
+
+    }
+
+  }
+
+  &__copyright {
+
+    border-bottom: 2px solid #eee;
+    padding: 2rem;
+    display: inline-block;
+
+
+  }
+
+}
+
