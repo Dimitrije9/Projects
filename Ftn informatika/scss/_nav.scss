@@ -1,0 +1,55 @@
+.nav{
+
+    display: flex;
+    background-color: #fff;
+    justify-content: center;
+    box-shadow: 0 1rem 1rem rgba(0,0,0,.08);
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+   
+  
+    &__logo-container{
+  
+        width: 20%;
+       
+     
+    }
+
+    &__logo{
+
+        width: 70%;
+        height: 3rem;
+        margin: 2rem;
+       
+    }
+
+    &__ul{
+
+display: flex;align-items: center;
+
+font-size: 1.5rem;
+margin: 1.8rem;
+
+
+    }
+    &__li{
+        list-style: none;
+        margin-left: 2.5rem;
+
+      
+      
+
+    }
+    &__a{
+
+        text-decoration: none;
+        color: rgb(153, 152, 152);
+        text-transform: uppercase;
+
+        &:hover{
+
+            color: rgb(51, 49, 49);
+        }
+    }
+}

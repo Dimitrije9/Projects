@@ -1,0 +1,235 @@
+.course-container {
+
+    display: flex;
+
+   
+ 
+}
+
+
+.course {
+
+
+
+    width: 50rem;
+    height: auto;
+    padding-bottom: 2rem;
+    border: 1px solid grey;
+    margin: 1rem;
+
+    transition: all .2s;
+    display: flex;
+    flex-direction: column;
+   
+
+
+    &:hover {
+        box-shadow: 0 2rem 6rem rgba(0, 0, 0, .6);
+
+    }
+
+    &__h2 {
+
+        font-size: 2rem;
+        padding-bottom: 2rem;
+
+
+        background-color: rgb(228, 74, 74);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+
+    }
+
+    &__java {
+
+        background-color: rgb(236, 167, 38);
+    }
+
+    &__front {
+
+        background-color: rgb(87, 175, 87);
+    }
+
+    &__test {
+
+        background-color: rgb(28, 139, 125);
+    }
+
+    &__net {
+        background-color: rgb(14, 165, 224);
+
+    }
+
+    &__android {
+
+        background-color: rgb(58, 58, 204);
+    }
+
+    &__design {
+
+        background-color: rgb(235, 86, 32);
+    }
+
+    &__base {
+
+        background-color: rgb(88, 102, 121);
+    }
+
+    &__ios {
+
+        background-color: rgb(143, 6, 143);
+    }
+
+    &__p {
+
+        font-size: 1.5rem;
+        padding: 3rem;
+        text-align: justify;
+        height: 30rem;
+        justify-content: center;
+
+        @media only screen and (max-width: $bp-large) {
+            display: none;
+        }
+    }
+
+
+
+}
+
+.fas {
+
+    margin: 1rem;
+    padding-top: 1rem;
+
+    font-size: 3.5rem;
+
+}
+
+.fab {
+    margin: 1rem;
+    padding-top: 1rem;
+
+    font-size: 3.5rem;
+
+}
+
+.fa-exclamation-triangle {
+
+    color: rgb(216, 71, 71);
+}
+
+.fa-info-circle {
+
+    color: rgb(36, 160, 209);
+}
+
+hr {
+
+    height: .1rem;
+    background-color: rgba(73, 73, 73, 0.096);
+    margin: 2rem;
+
+}
+
+.container-btn-2 {
+
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 1rem;
+
+
+    &__btn {
+
+        border: none;
+        padding: 1rem 2.5rem;
+        cursor: pointer;
+        background-color: rgb(252, 146, 146);
+        color: #fff;
+
+        &:hover {
+            background-color: rgb(202, 201, 201);
+            color: black;
+
+        }
+    }
+
+    &__jwd-btn {
+
+        background-color: rgb(252, 199, 100);
+        ;
+    }
+
+    &__front-btn {
+
+        background-color: rgb(123, 177, 123);
+    }
+
+    &__test-btn {
+
+        background-color: rgb(102, 180, 170);
+    }
+
+    &__net-btn {
+
+        background-color: rgb(107, 200, 236);
+    }
+
+    &__android-btn {
+
+        background-color: rgb(102, 102, 255);
+    }
+
+    &__design-btn {
+
+        background-color: rgb(240, 117, 72);
+    }
+
+    &__base-btn {
+
+        background-color: rgb(148, 157, 170);
+    }
+
+    &__ios-btn {
+
+        background-color: rgb(116, 67, 116);
+    }
+
+
+}
+
+.questions-big {
+
+    background-color: rgb(235, 235, 235);
+    padding: 4rem;
+}
+
+.container-questions {
+
+    box-shadow: 1rem 1rem 1rem rgba(121, 120, 120, 0.6);
+
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2rem;
+
+
+    &__questions {
+
+        font-size: 2rem;
+
+
+    }
+
+    &__span {
+
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+}

@@ -1,0 +1,193 @@
+.container {
+    width: 60%;
+    padding: 50px 0;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+   
+ }
+ 
+ .container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -1px;
+    width: 2px;
+    height: 100%;
+    background: #CCD1D9;
+    z-index: 1
+ }
+ 
+ .timeline-block {
+    width: -webkit-calc(50% + 8px);
+    width: -moz-calc(50% + 8px);
+    width: calc(50% + 8px);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    clear: both;
+ }
+ 
+ .timeline-block-right {
+    float: right;
+ }
+ 
+ .timeline-block-left {
+    float: left;
+    direction: rtl;
+ }
+ 
+ .marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid rgb(158, 158, 156);
+    background: #fff;
+    margin-top: 10px;
+    z-index: 9999
+ }
+
+
+ 
+ .timeline-content {
+    width: 95%;
+    color: #666;
+    background-color: #fff;
+  
+  
+  
+
+    &__h3{
+
+        
+        margin-bottom: 5px;
+        font-size: 25px;
+        font-weight: 500;
+        padding: 2rem;
+        
+    }
+
+    
+
+    &__p{
+        font-size: 14px;
+        line-height: 1.5em;
+        word-spacing: 1px;
+        padding: 1rem;
+       
+    }
+
+    &__time-btn{
+
+        padding: 1rem 2rem;
+        border:1px solid rgba(102, 102, 102, 0.452);
+        background-color: #fff;
+        margin: 1rem;
+        cursor: pointer;
+        outline: none;
+
+        &:hover{
+            background-color: rgb(202, 201, 201);
+            color: black;
+    }
+ }
+
+ &__color{
+
+    background-color:rgb(228, 74, 74);
+    color: #fff;
+  
+ }
+
+ &__color-2{
+
+    background-color:rgb(252, 199, 100);
+    color: #fff;
+  
+}
+
+&__color-3{
+
+    background-color:rgb(123, 177, 123);
+    color: #fff;
+  
+
+ }
+
+ &__color-4{
+   
+
+    background-color:rgb(102, 180, 170);
+    color: #fff;
+  
+ }
+
+ &__color-5{
+   
+
+    background-color:rgb(107, 200, 236);
+    color: #fff;
+  
+ }
+
+ &__color-6{
+   
+
+    background-color:rgb(102, 102, 255);
+    color: #fff;
+  
+ }
+
+ &__color-7{
+   
+
+    background-color: rgb(148, 157, 170);
+    color: #fff;
+  
+ }
+
+ &__color-8{
+   
+
+    background-color:rgb(240, 117, 72);
+    color: #fff;
+  
+ }
+
+ &__color-9{
+   
+
+    background-color:rgb(116, 67, 116);
+    color: #fff;
+  
+ }
+
+
+ }
+
+ 
+ @media screen and (max-width: 768px) {
+    .container:before {
+       left: 8px;
+       width: 2px;
+    }
+    .timeline-block {
+       width: 100%;
+       margin-bottom: 30px;
+    }
+    .timeline-block-right {
+       float: none;
+    }
+ 
+    .timeline-block-left {
+       float: none;
+       direction: ltr;
+    }
+ }
+ 

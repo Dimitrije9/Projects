@@ -1,0 +1,115 @@
+
+.figure{
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &__size{
+
+        width: 25%;
+        height: 8rem;
+        margin: 2rem;
+         cursor: pointer;
+
+         &:hover{
+
+            box-shadow:  1rem 1rem 1rem rgba(121, 120, 120, 0.6);
+         }
+    }
+
+}
+
+ //////////////
+
+
+ .container-contact{
+
+    background-color: rgb(250, 126, 104);
+    padding-bottom: 5rem;
+
+    &__h1{
+
+        color: #fff;
+        
+    }
+
+    &__dash{
+
+        background-color: #fff;
+    }
+
+    &__contact{
+
+        text-align: justify;
+        font-size: 2rem;
+        color: #fff;
+        margin-left: 2rem;
+        font-weight: 300;
+       
+     }
+
+ }
+
+
+
+ .container-contact-2{
+
+    display: flex;
+ }
+
+ .contact-2{
+display: flex;
+align-items: center;
+padding-top: 10rem;
+margin: 2rem;
+
+&__color{
+
+    color:rgb(250, 126, 104);
+    font-size: 5rem;
+    
+}
+
+
+&__location{
+background-color: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 8rem;
+height: 8rem;
+cursor: pointer;
+}
+
+&__adress{
+
+    font-size: 2rem;
+    color: #fff;
+    margin-left: 2rem;
+    font-weight: 300;
+}
+ }
+
+
+.footer{
+
+    padding-bottom: 15rem;
+    background-color: rgb(104, 101, 101);
+    display: flex;
+    justify-content: center;
+ 
+
+    &__txt{
+
+      margin-top: 15rem;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+
+      &:hover{
+
+       box-shadow:  1rem 1rem 1rem  rgba(39, 39, 39, 0.521);
+     }
+
+    }
+}
