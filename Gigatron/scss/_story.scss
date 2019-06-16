@@ -1,0 +1,212 @@
+@import 'var';
+
+.big-container{
+
+    display: flex;
+    justify-content: center;
+    margin: 10rem;
+  
+  }
+  
+  .first-title{
+  
+   text-align: center;
+   margin-bottom: 2rem;
+   font-size: 3rem;
+   letter-spacing: .4rem;
+   color: rgb(116, 113, 113);
+
+   @media only screen and (max-width: $bp-large) {
+   margin-top: 5rem;
+
+
+}
+
+@media only screen and (max-width: $bp-medium) {
+  font-size: 6rem;
+}
+  }
+  
+  
+  .mini-container{
+  
+  border:1px solid grey;
+  width: 25rem;
+  
+  
+  
+  
+  &__heart-container{
+  
+    display: flex;
+    justify-content: flex-end;
+   
+  }
+  &__heart{
+    width: 2rem;
+    height: 2rem;
+    margin: 1rem;
+    fill: #ffbf00;
+    cursor: pointer;
+  }
+  
+  }
+  
+  
+  .container-tv{
+  
+    display: flex;
+    justify-content: center;
+  
+    &__tv-img{
+  
+      width: 65%;
+      height: 20rem;
+    
+    }
+  
+  }
+  
+  .title{
+  
+    font-size: 1.2rem;
+    padding-bottom: 2rem;
+    font-weight: 700;
+    margin: 0 1rem;
+  
+  
+    &:hover{
+  
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .price-container{
+  
+    font-size: 1.4rem;
+    margin: 0 1rem 2rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.678);
+  
+    &__price{
+  
+      margin-bottom: 0.7rem;
+    }
+    &__price-1{
+  
+      margin-bottom: 0.7rem;
+    }
+    &__price-2{
+  
+      margin-bottom: 0.7rem;
+      font-size: 1.7rem;
+    }
+  }
+  
+  
+  
+  
+  
+  .container-star{
+  
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+    padding-bottom: 2rem;
+  
+  }
+  
+  .star{
+  
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+    
+  }
+  
+  .full{
+  
+    fill: #ffbf00;
+  }
+  
+  .container-btn{
+  
+   display: flex;
+   justify-content: center;
+   padding-bottom: 1rem;
+  
+    &__btn {
+      border: none;
+      color: #fff;
+      background-color: rgb(31, 33, 51);
+      width: 95%;
+      padding: 1.5rem 3rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+     text-transform: uppercase;
+  
+     &:hover{
+      background-color: rgb(52, 53, 58);
+  
+     }
+      
+    }
+  
+  }
+  
+  /////////
+
+  .drop{
+    width:23rem;
+    background-color: rgb(31, 33, 51);
+    margin: 2.5rem;
+    margin-right:10rem;
+    padding: 0.8rem;
+
+    @media only screen and (max-width: $bp-large) {
+      display: none
+  }
+
+    &__drop-menu{
+    
+      padding: 1rem 5rem;
+      margin: 1rem;
+    color: rgb(75, 74, 74);
+    
+    }
+    
+    &__tv-text{
+    
+      font-size: 2.5rem;
+     margin: 2rem;
+     color: #ffbf00;
+    }
+      
+    }
+    
+  
+    
+    .container-btn-2{
+    
+      display: flex;
+      justify-content: center;
+      
+     margin: 2rem;
+     
+       &__btn-2 {
+         border: none;
+         color: #fff;
+         background-color: rgb(75, 74, 74);
+       
+         padding: 1rem 1rem;
+         font-size: 1.2rem;
+         cursor: pointer;
+        text-transform: uppercase;
+     
+        &:hover{
+         background-color: rgb(109, 109, 112);
+     
+        }
+         
+       }
+     
+     }

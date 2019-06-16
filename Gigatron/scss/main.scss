@@ -1,0 +1,39 @@
+@import 'header';
+@import 'nav';
+@import 'story';
+@import 'footer';
+@import 'slider';
+@import 'var';
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+
+    @media only screen and (max-width: $bp-large) {
+      font-size: 50%;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 35%;
+}
+
+@media only screen and (max-width: $bp-small) {
+    font-size: 15%;
+}
+}
+
+
+
+
+
+
+
+
+

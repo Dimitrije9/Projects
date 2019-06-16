@@ -1,0 +1,177 @@
+@import 'var';
+
+
+header{
+    background-color: rgb(75, 74, 74);
+    color: rgb(250, 240, 240);
+    height: 4rem;
+   
+    display: flex;
+    justify-content: center;
+   
+    align-items: center;
+   
+   
+   
+   
+   }
+   
+   .user{
+   
+      display: flex;
+      border-right:1px solid #fff;
+      margin-right: 2rem;
+      align-items: center;
+     
+       &__icon{
+   
+           width: 1.5rem;
+           height: 1.5rem;
+           margin-right: .9rem;
+         fill: grey;
+         
+       }
+   
+       &__h2{
+   
+           align-self: center;
+           margin-right: .5rem;
+       }
+   
+       &__span{
+           margin:0 .7rem;
+       
+           font-size: 1.8rem;
+           color: #ffbf00;
+       
+       }
+   }
+   
+   .user-2{
+   
+       display: flex;
+   
+       border-right:1px solid #fff;
+       margin-right: 2rem;
+       align-items: center;
+        &__icon{
+    
+           width: 1.5rem;
+           height: 1.5rem;
+           margin-right: .9rem;
+           fill: grey;
+        }
+    
+        &__h2{
+    
+           align-self: center;
+        }
+    }
+   
+    .user-3{
+   
+      
+   
+       display: flex;
+   
+       border-right:1px solid #fff;
+       margin-right: 10rem;
+       background-color: rgb(116, 113, 113);
+       padding: .5rem;
+       padding-right:2rem;
+       align-items: center;
+       
+      
+        &__icon{
+    
+           width: 1.5rem;
+           height: 1.5rem;
+           margin-right: .9rem;
+           fill: grey;
+          
+   
+          
+        }
+    
+        &__h2{
+           align-self: center;
+    
+           cursor: pointer;
+        }
+    }
+   
+    .shop{
+   
+       display: flex;
+       margin-right: 3rem;
+       
+      
+        &__icon{
+    
+           width: 1.5rem;
+           height: 1.5rem;
+           margin-right: .9rem;
+         fill: grey;
+         
+        }
+    
+        &__h2{
+    
+           align-self: center;
+           color: gray;
+           cursor: pointer;
+        }
+    
+        &__span{
+           
+           color: #ffbf00;
+            
+        }
+    }
+   
+    .heart{
+   
+       display: flex;
+       margin-right: 4rem;
+   
+       border-right:1px solid #fff;
+       border-left:1px solid #fff;
+       padding:0 2rem;
+       height: 50%;
+       align-items: center;
+        &__icon{
+    
+           width: 1.5rem;
+           height: 1.5rem;
+           margin-right: .9rem;
+         fill: grey;
+         cursor: pointer;
+        }
+    
+        &__h2{
+    
+           align-self: center;
+           color:grey;
+           cursor: pointer;
+        }
+    
+       
+    }
+   
+    .icon-container{
+      
+       &__svg{
+   
+           width: 2rem;
+           height: 2rem;
+           margin-right: 1rem;
+           border-radius: 50%;
+           background: grey;
+           fill:rgb(75, 74, 74);
+           cursor: pointer;
+           
+           @media only screen and (max-width: $bp-small) {
+            display: none;
+        }
+       }
+    }
